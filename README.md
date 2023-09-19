@@ -1,0 +1,13 @@
+Chapters 5-9
+-Prepcode is a form of pseudo code to help focus on logic
+-test code: tests the real deal to see if it works properly
+- real code: almost like a final version of the code
+- method implementation:
+- refactor - to improve
+- Interger(1).parseInt(2)
+- (1) A class that ships with java
+- (2) A method in the integer class that knows how to "parse" a String into the int it represents
+- - parse: Analyze sentence or syntax into parts!
+- for(int cell : locationCells) {}
+  - Laymans terms - repeat for each element in the location cels array:take the next element in the array and assign it to the int variable cell
+  - ...The colon (:) means "in" so the whole thing means "for each int value In locationCells" 
