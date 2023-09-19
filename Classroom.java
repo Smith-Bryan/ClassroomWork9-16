@@ -66,27 +66,31 @@ public class Classroom {
             }
             students = newStudents;
         }
-        private Student[] getStudentsByScore(){
-            Student[] sortedStudents = Arrays.copyOf(students, students.length);
-
-            Arrays.sort(sortedStudents, new Comparator<Student>() {
-                @Override
-                public int compare(Student student1, Student student2) {
-                    int scoreComparison = Integer.compare(student1.getExamScores(), student2.getExamScores());
-                    if (scoreComparison == 0) {
-                        int nameComparison = student1.getFirstName().compareTo(student2.getFirstName());
-                        if (nameComparison == 0) {
-                            return student1.getLastName().compareTo(student2.getLastName());
-                        }
-                        return nameComparison;
-                    }
-                    return scoreComparison;
-                }
-            });
-
-            return sortedStudents;
-        }
     }
+    public Student[] getStudentsByScore() {
+            boolean swapped;
+            for (int i = 0; i < students.length-1; i++) {
+                swapped = false;
+                for (int j = 0; j < students.length - 1 - i; j++) {
+                    if (students[j] == null || students[j+1] == null) {
+
+                        continue;
+                    }
+                    if (students[j].getAverageExamScores() < students[j+1].getAverageExamScores()) { 
+                        Student temp = students[j];
+                        students[j] = students[j+1];
+                        students[j+1] = temp;
+                        swapped = true;
+                    }
+                }
+
+                if (!swapped) {
+                    break;
+                }
+            }
+            return students;
+        }
+
 
             private Map<Student, String> getGradeBook() {
                 Student[] sortedStudents = Arrays.copyOf(students, students.length);
